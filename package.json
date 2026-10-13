@@ -1,0 +1,11 @@
+{
+  "name": "information-collection-form-workspace",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix form install",
+    "dev": "npm --prefix form run dev --",
+    "build": "npm --prefix form run build",
+    "lint": "npm --prefix form run lint",
+    "preview": "npm --prefix form run preview"
+  }
+}

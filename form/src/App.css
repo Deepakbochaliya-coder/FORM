@@ -1,0 +1,355 @@
+#root {
+  min-height: 100vh;
+}
+
+.page-shell {
+  --green: #168c62;
+  --green-dark: #08794f;
+  --green-soft: #e9f7f0;
+  --ink: #19332b;
+  --muted: #71817a;
+  --line: #e3ece7;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 54px 20px 24px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(225, 247, 236, .78), transparent 48%),
+    #f6faf7;
+}
+
+.ambient {
+  position: absolute;
+  z-index: -1;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(198, 237, 215, .35);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.ambient-one {
+  top: 220px;
+  left: -210px;
+}
+
+.ambient-two {
+  top: 560px;
+  right: -210px;
+  width: 340px;
+  height: 340px;
+}
+
+.form-card {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 42px 52px 38px;
+  border: 1px solid rgba(222, 235, 227, .9);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 22px 70px rgba(35, 83, 59, .09), 0 2px 8px rgba(35, 83, 59, .035);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
+  color: #fff;
+  background: linear-gradient(145deg, #21aa77, #087a52);
+  border-radius: 19px;
+  box-shadow: 0 9px 20px rgba(17, 140, 94, .2);
+}
+
+.brand-icon {
+  width: 33px;
+  height: 33px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .17em;
+}
+
+.form-header h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(25px, 4vw, 32px);
+  font-weight: 720;
+  letter-spacing: -.045em;
+  line-height: 1.2;
+}
+
+.intro {
+  margin: 11px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.information-form {
+  border-top: 1px solid #edf2ee;
+  padding-top: 26px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20px;
+  row-gap: 18px;
+}
+
+.field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field label,
+.gender-field legend {
+  color: #29443a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.field label > span:not(.optional),
+.gender-field legend > span {
+  color: #df6259;
+}
+
+.optional {
+  color: #96a39d;
+  font-size: 11px;
+  font-weight: 450;
+}
+
+.field input:not([type="radio"]),
+.field select,
+.field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 45px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  transition: border-color .16s ease, box-shadow .16s ease, background .16s ease;
+}
+
+.field input:not([type="radio"]),
+.field select {
+  padding: 0 13px;
+}
+
+.field textarea {
+  min-height: 102px;
+  padding: 11px 13px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #a4b0aa;
+}
+
+.field select:invalid,
+.field select option[value=""] {
+  color: #a4b0aa;
+}
+
+.field input:not([type="radio"]):focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #6ac49b;
+  box-shadow: 0 0 0 3px rgba(27, 151, 101, .11);
+}
+
+.field [aria-invalid="true"] {
+  border-color: #dc6c64 !important;
+  background-color: #fffdfd;
+}
+
+.gender-field {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.gender-field legend {
+  margin-bottom: 9px;
+  padding: 0;
+}
+
+.gender-options {
+  display: flex;
+  min-height: 45px;
+  align-items: center;
+  gap: 18px;
+}
+
+.radio-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #53665d !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+
+.radio-option input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--green);
+}
+
+.field-error {
+  margin: -2px 0 0;
+  color: #c3443b;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.character-count {
+  align-self: flex-end;
+  margin-top: -3px;
+  color: #9aa79f;
+  font-size: 10px;
+}
+
+.form-status {
+  margin: 20px 0 0;
+  padding: 11px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.status-success {
+  color: #126e4a;
+  border: 1px solid #c9ead8;
+  background: #effaf3;
+}
+
+.status-error {
+  color: #a23e36;
+  border: 1px solid #f0d2cf;
+  background: #fff6f5;
+}
+
+.submit-button {
+  display: flex;
+  width: 100%;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #159565, #08794f);
+  box-shadow: 0 7px 14px rgba(11, 128, 81, .16);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 19px rgba(11, 128, 81, .22);
+  filter: saturate(1.08);
+}
+
+.submit-button:focus-visible {
+  outline: 3px solid rgba(22, 140, 98, .3);
+  outline-offset: 3px;
+}
+
+.button-icon {
+  width: 21px;
+  height: 21px;
+}
+
+.privacy-note {
+  margin: 13px auto 0;
+  color: #89968f;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.page-footer {
+  padding: 20px 12px 0;
+  color: #9aa79f;
+  font-size: 11px;
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .page-shell {
+    padding: 24px 13px 18px;
+  }
+
+  .form-card {
+    padding: 30px 21px 25px;
+    border-radius: 17px;
+  }
+
+  .form-header {
+    margin-bottom: 23px;
+  }
+
+  .brand-mark {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 15px;
+    border-radius: 17px;
+  }
+
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 16px;
+  }
+
+  .field-wide {
+    grid-column: auto;
+  }
+
+  .gender-options {
+    gap: 23px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
